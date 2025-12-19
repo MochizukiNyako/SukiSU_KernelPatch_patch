@@ -251,3 +251,13 @@ void __noinline _paging_init()
     // start
     ((start_f)start_va)(data->kimage_voffset, data->linear_voffset);
 }
+
+void *memcpy(void *dst, const void *src, size_t n)
+{
+    const char *p = src;
+    char *q = dst;
+    while (n--) {
+        *q++ = *p++;
+    }
+    return dst;
+}
